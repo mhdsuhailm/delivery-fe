@@ -14,7 +14,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/menu" />} />
+      <Route path="/" element={<Navigate to="/menu/takeaway" />} />
       <Route path="/menu" element={<MenuPage />} />
     </Routes>
   );
