@@ -15,7 +15,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/menu/takeaway" />} />
-      <Route path="/menu" element={<MenuPage />} />
+      <Route path="/menu/:type" element={<MenuPage />} />
     </Routes>
   );
 }
