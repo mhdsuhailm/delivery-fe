@@ -192,7 +192,7 @@ const OrderDrawer = ({
   isOpen={showSuccess}
   onClose={() => {
     setShowSuccess(false);
-    window.location.href = "https://api.whatsapp.com/send?phone=15551456693";
+    window.location.href = "https://api.whatsapp.com/send?phone=15550658102";
   }}
 />
     </>
