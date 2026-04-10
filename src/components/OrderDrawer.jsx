@@ -26,9 +26,9 @@ const OrderDrawer = ({
   const handleCheckout = async () => {
 
     const orderData = {
-      customerName: "Walk-in Customer",
-      phone: "9999999999",
-      tableNumber: "T1",
+      // customerName: "Walk-in Customer",
+      // phone: "9999999999",
+      // tableNumber: "T1",
       items
     };
 
