@@ -263,8 +263,8 @@ const token = searchParams.get("token")
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
-    // fetch(`https://food-be-eyck.onrender.com/api/menu?type=${type}`)
-    fetch(`http://localhost:5000/api/menu`)
+    fetch(`https://delivery-be-taz7.onrender.com/api/menu`)
+    // fetch(`http://localhost:5000/api/menu`)
       .then((res) => res.json())
       .then((data) => {
         console.log("API RESPONSE:", data);
