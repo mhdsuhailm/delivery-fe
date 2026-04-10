@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease forwards;
+}
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+body {
+  touch-action: manipulation;
+}
