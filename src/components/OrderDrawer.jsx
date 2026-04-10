@@ -36,7 +36,7 @@ const OrderDrawer = ({
 
       const response = await fetch(
         // "https://food-be-eyck.onrender.com/api/orders",
-        "https://delivery-be-taz7.onrender.com/api/orders",
+        "https://delivery-be-taz7.onrender.com/api/order/create",
         {
           method: "POST",
           headers: {
