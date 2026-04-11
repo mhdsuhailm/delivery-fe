@@ -30,6 +30,8 @@ const OrderDrawer = ({
   portion_id: item.portion_id, // 🔥 VERY IMPORTANT
   qty: item.quantity
 }));
+console.log("SENDING ITEMS:", formattedItems);
+
     const orderData = {
       // customerName: "Walk-in Customer",
       // phone: "9999999999",
