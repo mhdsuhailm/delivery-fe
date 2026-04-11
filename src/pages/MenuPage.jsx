@@ -293,6 +293,7 @@ const token = searchParams.get("token")
         ...prev,
         [item.id]: {
           ...item,
+          portion_id: item.portion_id,
           quantity: existing ? existing.quantity + 1 : 1,
         },
       };
