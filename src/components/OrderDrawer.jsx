@@ -25,12 +25,18 @@ const OrderDrawer = ({
 
   const handleCheckout = async () => {
 
+    const formattedItems = items.map(item => ({
+  item_id: item.id,           // 🔥 must match backend
+  portion_id: item.portion_id, // 🔥 VERY IMPORTANT
+  qty: item.quantity
+}));
     const orderData = {
       // customerName: "Walk-in Customer",
       // phone: "9999999999",
       // tableNumber: "T1",
-      items
+      items : formattedItems
     };
+    
 
     try {
 
