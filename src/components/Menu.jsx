@@ -33,14 +33,37 @@
 
 // export default Menu;
 import DishCard from "./DishCard";
+import { useState } from "react";
+import ChefNoteModal from "./chefNoteModal";
+import InstructionModal from "./InstructionModel";
 
 const Menu = ({
   groupedData = {},
   onSelect,
   cart,
   addToCart,
-  removeFromCart
+  removeFromCart,
+  addInstruction
 }) => {
+  const [selectedDish, setSelectedDish] = useState(null);
+const [showChefNote, setShowChefNote] = useState(false);
+const [showInstruction, setShowInstruction] = useState(false);
+const handleInstructionSubmit = async (dish, text) => {
+  try {
+    await fetch("/api/order-items/instruction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        itemId: dish.id,
+        special_instruction: text,
+      }),
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
   return (
     <div className="p-4">
       {Object.keys(groupedData).map((category) => (
@@ -58,11 +81,32 @@ const Menu = ({
               cart={cart}
               addToCart={addToCart}
               removeFromCart={removeFromCart}
+              onShowChefNote={(dish) => {
+                setSelectedDish(dish);
+                setShowChefNote(true);}}
+              addInstruction={addInstruction} 
+              onShowInstruction={(dish) => {
+                setSelectedDish(dish);
+                setShowInstruction(true);
+              }}
             />
           ))}
 
         </div>
       ))}
+      {showChefNote && (
+        <ChefNoteModal
+          selected={selectedDish}
+          onClose={() => setShowChefNote(false)}
+        />
+      )}
+      {showInstruction && (
+  <InstructionModal
+    selected={selectedDish}
+    onClose={() => setShowInstruction(false)}
+    onSubmit={handleInstructionSubmit}
+  />
+)}
     </div>
   );
 };

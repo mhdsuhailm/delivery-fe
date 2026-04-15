@@ -44,7 +44,7 @@ const DishModal = ({ selected, onClose }) => {
       <div className="bg-[#0E3B36] rounded-3xl max-w-md w-full shadow-2xl border border-[#C8A95133] overflow-hidden">
 
         <img
-          src={selected.image}
+          src={selected.image_urls}
           alt={selected.name}
           className="w-full h-56 object-cover"
         />

@@ -276,6 +276,15 @@ const token = searchParams.get("token")
         setLoading(false);
       });
   }, [type]);
+      const addInstruction = (dish, text) => {
+        setCart((prev) => ({
+          ...prev,
+          [dish.id]: {
+            ...prev[dish.id],
+            special_instruction: text, // ✅ ADD THIS
+          },
+        }));
+      };
 
   // ✅ Group by category
   const grouped = menuData.reduce((acc, item) => {
@@ -311,7 +320,7 @@ const token = searchParams.get("token")
         delete updated[item.id];
         return updated;
       }
-
+      
       return {
         ...prev,
         [item.id]: {
@@ -350,6 +359,7 @@ const token = searchParams.get("token")
             cart={cart}
             addToCart={addToCart}
             removeFromCart={removeFromCart}
+            addInstruction={addInstruction}  
           />
         )}
 

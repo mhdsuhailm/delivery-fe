@@ -28,7 +28,8 @@ const OrderDrawer = ({
     const formattedItems = items.map(item => ({
   item_id: item.id,           // 🔥 must match backend
   portion_id: item.portion_id, // 🔥 VERY IMPORTANT
-  qty: item.quantity
+  qty: item.quantity,
+  special_instruction: item.special_instruction || ""
 }));
 console.log("SENDING ITEMS:", formattedItems);
 

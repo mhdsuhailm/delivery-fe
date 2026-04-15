@@ -129,7 +129,7 @@
 // export default DishCard;
 import { Plus, Minus } from "lucide-react";
 
-const DishCard = ({ item, cart, addToCart, removeFromCart, onSelect }) => {
+const DishCard = ({ item, cart, addToCart, removeFromCart, onSelect, onShowChefNote, onShowInstruction }) => {
 
   const quantity = cart?.[item.id]?.quantity || 0;
 
@@ -179,7 +179,11 @@ const DishCard = ({ item, cart, addToCart, removeFromCart, onSelect }) => {
           </p>
 
           {/* CHEF NOTE */}
-          <div className="flex items-center gap-[4px] text-[#D4AF37]">
+          <div onClick={(e) => {
+              e.stopPropagation(); // IMPORTANT (prevents DishModal opening)
+              onShowChefNote(item);
+          }}
+          className="flex items-center gap-[4px] text-[#D4AF37]">
 
             <img src="/Chef.png" alt="chef" className="w-[12px]" />
 
@@ -195,6 +199,10 @@ const DishCard = ({ item, cart, addToCart, removeFromCart, onSelect }) => {
 
         {/* COOKING BUTTON */}
         <button
+        onClick={(e) => {
+    e.stopPropagation();
+    onShowInstruction(item);
+  }}
           className="w-[196px] h-[24px] border border-[#D4AF37] text-[#D4AF37] rounded-[10px] text-[8px] px-[10px]"
           style={{ fontFamily: "Plus Jakarta Sans", lineHeight: "100%" }}
         >
