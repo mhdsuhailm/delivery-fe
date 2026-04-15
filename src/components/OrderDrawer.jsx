@@ -29,7 +29,7 @@ const OrderDrawer = ({
   item_id: item.id,           // 🔥 must match backend
   portion_id: item.portion_id, // 🔥 VERY IMPORTANT
   qty: item.quantity,
-  special_instruction: item.special_instruction || ""
+  special_instructions: item.special_instructions || ""
 }));
 console.log("SENDING ITEMS:", formattedItems);
 
