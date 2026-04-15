@@ -281,11 +281,12 @@ const token = searchParams.get("token")
       //     ...prev,
       //     [dish.id]: {
       //       ...prev[dish.id],
-      //       special_instruction: text, // ✅ ADD THIS
+      //       special_instructions: text, // ✅ ADD THIS
       //     },
       //   }));
       // };
 const addInstruction = (dish, text) => {
+  console.log("SAVING INSTRUCTION:", text);
   setCart((prev) => ({
     ...prev,
     [dish.id]: {
